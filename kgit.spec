@@ -1,5 +1,5 @@
 Summary:	KDE frontend for GIT repositories
-Summary(pl.UTF-8):	Interfejs do zarządzania repozytoriami GIT dla KDE
+Summary(pl.UTF-8):	Interfejs do zarz�dzania repozytoriami GIT dla KDE
 Name:		kgit
 Version:	0.1
 Release:	0.1
@@ -11,14 +11,22 @@ URL:		http://kgit.sourceforge.net/
 BuildRequires:	automake
 BuildRequires:	kdelibs-devel
 BuildRequires:	rpmbuild(macros) >= 1.129
+Requires:	git-core
 Requires:	kdelibs >= 3.3.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 Small but functional frontend to the popular source control programm,
 git. It is similar to 'gitk' with two significant differences:
-- written in Qt using KDevelop and kde libraires
-- it is functional unlike gitk which is only a repository viewer
+- written in Qt using KDevelop and KDE libraires,
+- it is functional unlike gitk which is only a repository viewer.
+
+%description -l pl.UTF-8
+Mały, ale funkcjonalny interfejs popularnego systemu kontroli źródeł,
+gita. Jest podobny do 'gitk' z dwiema znaczącymi różnicami:
+- jest napisany przy pomocy bibliotek Qt i KDE w KDevelopie,
+- jest funkcjonalny w przeciwieństwie do 'gitk', który jest tylko
+przeglądarką repozytoriów.
 
 %prep
 %setup -q -n %{name}
