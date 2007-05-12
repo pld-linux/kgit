@@ -1,5 +1,5 @@
 Summary:	KDE frontend for GIT repositories
-Summary(pl.UTF-8):	Interfejs do zarz�dzania repozytoriami GIT dla KDE
+Summary(pl.UTF-8):	Interfejs do zarządzania repozytoriami GIT dla KDE
 Name:		kgit
 Version:	0.1
 Release:	0.1
@@ -16,14 +16,14 @@ Requires:	kdelibs >= 3.3.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Small but functional frontend to the popular source control programm,
+Small but functional frontend to the popular source control program,
 git. It is similar to 'gitk' with two significant differences:
-- written in Qt using KDevelop and KDE libraires,
+- written in Qt using KDevelop and KDE libraries,
 - it is functional unlike gitk which is only a repository viewer.
 
 %description -l pl.UTF-8
-Mały, ale funkcjonalny interfejs popularnego systemu kontroli źródeł,
-gita. Jest podobny do 'gitk' z dwiema znaczącymi różnicami:
+Mały, ale funkcjonalny interfejs do popularnego systemu kontroli
+źródeł - gita. Jest podobny do 'gitk' z dwiema znaczącymi różnicami:
 - jest napisany przy pomocy bibliotek Qt i KDE w KDevelopie,
 - jest funkcjonalny w przeciwieństwie do 'gitk', który jest tylko
 przeglądarką repozytoriów.
@@ -45,6 +45,10 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT \
 	kde_htmldir=%{_kdedocdir}
 
+install -d $RPM_BUILD_ROOT%{_desktopdir}/kde
+mv -f $RPM_BUILD_ROOT%{_datadir}/applnk/Utilities/kgit.desktop \
+	$RPM_BUILD_ROOT%{_desktopdir}/kde
+
 %find_lang %{name} --with-kde
 
 %clean
@@ -55,6 +59,6 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog README TODO
 %attr(755,root,root) %{_bindir}/kgit
 %attr(755,root,root) %{_bindir}/kgit_client
-%{_datadir}/applnk/Utilities/kgit.desktop
+%{_datadir}/apps/kgit
+%{_desktopdir}/kde/kgit.desktop
 %{_iconsdir}/hicolor/*/apps/kgit.png
-%{_datadir}/apps/kgit/kgitui.rc
