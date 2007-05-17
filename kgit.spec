@@ -2,11 +2,12 @@ Summary:	KDE frontend for GIT repositories
 Summary(pl.UTF-8):	Interfejs do zarządzania repozytoriami GIT dla KDE
 Name:		kgit
 Version:	0.1
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		X11/Applications
 Source0:	http://dl.sourceforge.net/kgit/%{name}-%{version}.tar.bz2
 # Source0-md5:	adef4a6ca7a9da22b86ef9d30ce6ec97
+Patch0:		kde-ac260-lt.patch
 URL:		http://kgit.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -31,6 +32,7 @@ przeglądarką repozytoriów.
 
 %prep
 %setup -q -n %{name}
+%patch0 -p1
 
 %build
 cp -f /usr/share/automake/config.* admin
